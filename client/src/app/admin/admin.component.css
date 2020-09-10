@@ -1,0 +1,18 @@
+.collapsible-header{
+    color: darkgreen;
+    width: 100%;
+}
+.collapsible-body{
+    width: 90%;
+}
+
+.collapsible{
+    width: 90%;
+}
+
+.responsive-table{
+    width:100%;
+}
+#admins{
+    padding-bottom:600px;
+}

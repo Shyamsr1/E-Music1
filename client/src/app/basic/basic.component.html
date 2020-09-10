@@ -1,0 +1,78 @@
+<div id="basic" class="section scrollspy">
+  <div
+    class="container"
+    style="height: fit-content; width: fit-content"
+  >
+    <h5>Welcome {{ user.username }}</h5>
+
+    <div class="card-panel z-depth-5">
+      <ul class="card-content">
+        <li>
+          <div class="card-header">
+            <i class="material-icons">filter_drama</i>
+            {{ user.username }} -- 
+            {{ user.serialNumber }}
+          </div>
+          <div class="card-body">
+            <div class="responsive-table">
+              <table class="striped">
+                <tbody>
+                  <tr>
+                    <td>Serial Number</td>
+                    <td>{{ user.serialNumber }}</td>
+                  </tr>
+                  <tr>
+                    <td>BatchTotalStudents</td>
+                    <td>{{ user.batchTotalStudents }}</td>
+                  </tr>
+
+                  <tr>
+                    <td>username</td>
+                    <td>{{ user.username }}</td>
+                  </tr>
+                  
+                  <tr>
+                    <td>slot</td>
+                    <td>{{ user.slot }}</td>
+                  </tr>
+                  <tr>
+                    <td>emailid</td>
+                    <td>{{ user.email }}</td>
+                  </tr>
+                  <tr>
+                    <td>phonenumber</td>
+                    <td>{{ user.phonenumber }}</td>
+                  </tr>
+                  <tr>
+                    <td>startdate</td>
+                    <td>{{ user.startdate }}</td>
+                  </tr>
+
+                  <tr>
+                    <td>enddate</td>
+                    <td>{{ user.enddate }}</td>
+                  </tr>
+                  <tr>
+                    <td>feepaid</td>
+                    <td>{{ user.feepaid }}</td>
+                  </tr>
+                  <tr>
+                    <td>attendancecount</td>
+                    <td>{{ user.attendanceCount }}</td>
+                  </tr>
+
+                  <tr>
+                    <td>batchModified</td>
+                    <td>{{ user.batchmodified }}</td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </li>
+        <br />
+      </ul>
+    </div>
+  </div>
+</div>

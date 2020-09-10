@@ -1,0 +1,122 @@
+<Header>
+<nav class="nav-extended " id="myNav">
+  <div class="nav-wrapper">
+    <a routerLink="" class="brand-logo"><i class="fa fa-music"></i>Smt Girija</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    
+    <ul class="right hide-on-med-and-down">
+      <li>
+        <a routerLink="/achievements-and-awards">
+          Achievements & Awards
+        </a>
+      </li>
+      <li>
+        <a routerLink="/online-classes">
+          Online Classes
+        </a>
+      </li>
+      <li>
+        <a routerLink="/gallery">
+          Gallery
+        </a>
+      </li>
+      <li>
+        <a routerLink="/contact">
+          Contact
+        </a>
+      </li>
+      <li *ngIf="!checkLoggedIn()">
+        <a routerLink="/signup">
+          Sign Up
+        </a>
+      </li>
+      <li *ngIf="!checkLoggedIn()">
+        <a routerLink="/login">
+          Login
+        </a>
+      </li>
+        
+      <li *ngIf="checkLoggedIn() && checkAdmin()">    
+        <a routerLink="/admin">
+          New Admissions 
+        </a>
+      </li>
+  
+      <li *ngIf="checkLoggedIn() && checkAdmin()">
+        <a routerLink="/updatestudent">
+          Modify Student Detail
+        </a>
+      </li>
+  
+      <li *ngIf="checkLoggedIn() && !checkAdmin()">
+        <a routerLink="/basic">
+          Student Detail
+        </a>
+      </li>
+  
+      <li>
+        <a class="nav-link" *ngIf="checkLoggedIn()" (click)="logout()">
+          Logout
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<ul class="sidenav sidenav-close" id="mobile-demo">
+    <li>
+      <a routerLink="/achievements-and-awards">
+        Achievements & Awards
+      </a>
+    </li>
+    <li>
+      <a routerLink="/online-classes">
+        Online Classes
+      </a>
+    </li>
+    <li>
+      <a routerLink="/gallery">
+        Gallery
+      </a>
+    </li>
+    <li>
+      <a routerLink="/contact">
+        Contact
+      </a>
+    </li>
+    <li *ngIf="!checkLoggedIn()">
+      <a routerLink="/signup">
+        Sign Up
+      </a>
+    </li>
+    <li *ngIf="!checkLoggedIn()">
+      <a routerLink="/login">
+        Login
+      </a>
+    </li>
+    <li *ngIf="checkLoggedIn() && checkAdmin()">    
+      <a routerLink="/admin">
+        New Admissions
+      </a>
+    </li>
+
+    <li *ngIf="checkLoggedIn() && checkAdmin()">
+      <a routerLink="/updatestudent">
+        Modify Student Detail
+      </a>
+    </li>
+
+    <li *ngIf="checkLoggedIn() && !checkAdmin()">
+      <a routerLink="/basic">
+        Student Detail
+      </a>
+    </li>
+
+    <li>
+      <a class="nav-link" *ngIf="checkLoggedIn()" (click)="logout()">
+        Logout
+      </a>
+    </li>
+  </ul>
+</Header>

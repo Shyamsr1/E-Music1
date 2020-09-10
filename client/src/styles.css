@@ -1,0 +1,111 @@
+
+body {
+
+    background-image: linear-gradient( 109.6deg,  rgba(33,25,180,1) 11.2%, rgba(253,29,29,1) 55.2%, rgba(252,176,69,1) 91.1% );
+    background-size: 400% 400%;
+    animation: gradient 18s ease infinite;
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: Poison Apple Regular DEMO;
+    color: white;
+    /* font-family: 'Berkshire Swash', cursive; */
+    /* font-family: LCALLIG; */
+    /* font-weight: 100; */
+    width: 100%;
+    
+  }
+  /* For body background animation */
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  #mobileSideNav {
+    background-image: linear-gradient( 99deg,  rgba(255,166,0,1) 14.7%, rgba(255,99,97,1) 73% );
+  }
+  #mobileSideNav li,
+  #nav-mobile li {
+    color: white;
+  }
+  .card-panel {
+    border-radius: 35px;
+    background-color: transparent;
+    color: white;
+  }
+
+  input,
+  label {
+    color: white
+  }
+  
+ 
+  /* Paragraph styles */
+  .flow-text {
+    text-align: justify;
+    text-justify: auto;
+    font-size: 15px;
+  }
+  .carousel {
+    background-color: transparent;
+  }
+  .carousel-item {
+    min-height: 400px;
+  }
+  .carousel .carousel-item > img {
+    width: 350%;
+    margin-left: -125%;
+  }
+  
+  .card {
+    max-width: 400px;
+    max-height: 600px;
+    background: transparent;
+    border-radius: 15px;
+    margin-left: 10px;
+  }
+  .card-reveal {
+    background: linear-gradient(120deg, #fffb00, #fa8bff, #2bd2ff, #2bff88);
+    color: white;
+  }
+ 
+  .parallax{
+    position:static;
+  }
+
+  .collection-item{
+    color: black; 
+    text-align: left;
+  }
+  
+  .onli{
+    list-style-type: circle !important;
+    /* list-style-type: highlight !important; */
+    text-align: left;
+  }
+
+  .sidenav{
+
+    background-image: linear-gradient( 99deg,  rgba(255,166,0,1) 14.7%, rgba(255,99,97,1) 73% );
+  }
+
+  @font-face {
+    font-family: LCALLIG;
+    src: url("assets/fonts/LCALLIG.ttf") format("truetype");
+}
+
+h5{
+  color: #fff;
+}
+
+.microsoft marquee{
+  color: #fff;
+}
+
+
+
+

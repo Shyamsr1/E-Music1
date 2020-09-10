@@ -1,0 +1,370 @@
+<div id="updatestudent" class="section scrollspy">
+  <div class="container" style="height: fit-content; width: fit-content;">
+    <h5>
+      Edit Student Details
+    </h5>
+
+    <div *ngFor="let user of users">
+      <br>
+      <div *ngIf="user.role!='admin'">
+      <div
+        class="card-panel z-depth-5"
+        *ngIf="user._id !== editRowID; then thenBlock; else elseBlock"
+      ></div>
+
+      <ng-template #thenBlock>
+        <div class="card-header">
+          <i class="material-icons">filter_drama</i> {{ user.username }} --
+          {{ user.serialNumber }}
+        </div>
+        <div class="card-body">
+          <div class="responsive-table">
+            <table class="striped">
+              <tbody>
+                <tr>
+                  <td>Serial Number</td>
+                  <td>{{ user.serialNumber }}</td>
+                </tr>
+                <tr>
+                  <td>Total Number of Students in the Batch</td>
+                  <td>{{ user.batchTotalStudents }}</td>
+                </tr>
+
+                <tr>
+                  <td>User Name</td>
+                  <td>{{ user.username }}</td>
+                </tr>
+                <!-- <tr>
+                  <td>password</td>
+                  <td>{{ user.password }}</td>
+                </tr> -->
+                <tr>
+                  <td> Slot </td>
+                  <td>{{ user.slot }}</td>
+                </tr>
+                <tr>
+                  <td> Email Id</td>
+                  <td>{{ user.email }}</td>
+                </tr>
+                <tr>
+                  <td> Phone Number</td>
+                  <td>{{ user.phonenumber }}</td>
+                </tr>
+                <tr>
+                  <td>Batch Start Date</td>
+                  <td>{{ user.startdate }}</td>
+                </tr>
+
+                <tr>
+                  <td>Batch End Date</td>
+                  <td>{{ user.enddate }}</td>
+                </tr>
+                <tr>
+                  <td> Fee Paid by Student</td>
+                  <td>{{ user.feepaid }}</td>
+                </tr>
+                <tr>
+                  <td> Classes Attended </td>
+                  <td>{{ user.attendanceCount }}</td>
+                </tr>
+                <!-- <tr>
+                  <td>forgotpassword</td>
+                  <td>{{ user.forgotpassword }}</td>
+                </tr> -->
+                <tr>
+                  <td> Is Batch Completed</td>
+                  <td>{{ user.batchcompleted }}</td>
+                </tr>
+                <tr>
+                  <td>Is Batch Modified</td>
+                  <td>{{ user.batchmodified }}</td>
+                </tr>
+                <tr>
+                  <td>Admitted</td>
+                  <td>
+                    {{ user.admitted }}
+                    <button
+                      class="waves-effect waves-light btn"
+                      type="button"
+                      (click)="admit(user._id)"
+                      *ngIf="!user.admitted"
+                    >
+                      <i class="material-icons left">add</i>Add Student
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Edit Student</td>
+                  <td>
+                    <button
+                      class="btn btn-warning"
+                      (click)="enableEdit(user._id)"
+                    >
+                      <svg
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        class="bi bi-pen"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5.707 13.707a1 1 0 0 1-.39.242l-3 1a1 1 0 0 1-1.266-1.265l1-3a1 1 0 0 1 .242-.391L10.086 2.5a2 2 0 0 1 2.828 0l.586.586a2 2 0 0 1 0 2.828l-7.793 7.793zM3 11l7.793-7.793a1 1 0 0 1 1.414 0l.586.586a1 1 0 0 1 0 1.414L5 13l-3 1 1-3z"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          d="M9.854 2.56a.5.5 0 0 0-.708 0L5.854 5.855a.5.5 0 0 1-.708-.708L8.44 1.854a1.5 1.5 0 0 1 2.122 0l.293.292a.5.5 0 0 1-.707.708l-.293-.293z"
+                        />
+                        <path
+                          d="M13.293 1.207a1 1 0 0 1 1.414 0l.03.03a1 1 0 0 1 .03 1.383L13.5 4 12 2.5l1.293-1.293z"
+                        />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Delete Student detail</td>
+                  <td>
+                    <button
+                      class="btn btn-danger"
+                      (click)="deleteRow(user._id)"
+                    >
+                      <svg
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        class="bi bi-trash"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+                        />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </ng-template>
+
+      <ng-template #elseBlock>
+        <div class="card-header">
+          <i class="material-icons">filter_drama</i> {{ user.username }} --
+          {{ user.serialNumber }}
+        </div>
+        <div class="card-body">
+          <div class="responsive-table">
+            <table class="striped">
+              <tbody>
+                <tr>
+                  <td>Serial Number</td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="user.serialNumber"
+                      name="serialNumber"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>BatchTotalStudents</td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      [(ngModel)]="user.batchTotalStudents"
+                      name="batchTotalStudents"
+                    />
+                  </td>
+                </tr>
+
+                <tr>
+                  <td> User Name</td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="user.username"
+                      name="username"
+                    />
+                  </td>
+                </tr>
+
+                <tr>
+                  <td> Slot </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="user.slot"
+                      name="slot"
+                      disabled
+                    />
+                  </td>
+                </tr>
+
+                <tr>
+                  <td> Email Id </td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="user.email"
+                      name="email"
+                    />
+                  </td>
+                </tr>
+
+                <tr>
+                  <td> Phone Number</td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      [(ngModel)]="user.phonenumber"
+                      name="phonenumber"
+                    />
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Batch Start Date</td>
+                  <td>
+                    <input
+                      type="date"
+                      class="form-control"
+                      [(ngModel)]="user.startdate"
+                      name="startdate"
+                    />
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Batch End Date</td>
+                  <td>
+                    <input
+                      type="date"
+                      class="form-control"
+                      [(ngModel)]="user.enddate"
+                      name="enddate"
+                    />
+                  </td>
+                </tr>
+
+                <tr>
+                  <td> Is Fee Paid</td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="user.feepaid"
+                      name="feepaid"
+                    />
+                  </td>
+                </tr>
+
+                <tr>
+                  <td> Attendance Count</td>
+                  <td>
+                    <input
+                      type="number"
+                      class="form-control"
+                      [(ngModel)]="user.attendanceCount"
+                      name="attendanceCount"
+                      min="0"
+                      max="9"
+                    />
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td>Is Batch Completed</td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="user.batchcompleted"
+                      name="batchcompleted"
+                    />
+                  </td>
+                </tr>
+
+                <tr>
+                  <td> Is Batch Modified</td>
+                  <td>
+                    <input
+                      type="text"
+                      class="form-control"
+                      [(ngModel)]="user.batchmodified"
+                      name="batchmodified"
+                    />
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Save Modifications</td>
+                  <td>
+                    <button
+                      *ngIf="user._id === editRowID"
+                      class="btn btn-link"
+                      (click)="updateRow(user._id)"
+                      type="submit"
+                    >
+                      Save
+                    </button>
+                    <button
+                      *ngIf="user._id === editRowID"
+                      class="btn btn-link"
+                      (click)="cancelUpdate()"
+                    >
+                      Cancel
+                    </button>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Delete Student detail</td>
+                  <td>
+                    <button
+                      class="btn btn-danger"
+                      (click)="deleteRow(user._id)"
+                    >
+                      <svg
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 16 16"
+                        class="bi bi-trash"
+                        fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"
+                        />
+                      </svg>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+    </div>
+  </div>
+</div>
