@@ -53,10 +53,12 @@
               type="submit"
               name="submit"
               id="submit"
+              [disabled]="!loginForm.valid"
               >
               Login
             </button>
           </div>
+
           <div class="col s2">
             <button
             class="waves-effect waves-light btn"
